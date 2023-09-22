@@ -46,12 +46,17 @@ export const ToDoList = () => {
         if (newTask.trim() === '') {
           return
         }
+        
+        const confirmed = window.confirm('Apakah Anda yakin ingin menambahkan task ini?')
+        if (!confirmed) {
+            return
+        }
+        
         const newId = Math.max(...data.map((task) => task.id), 0) + 1
         const newTaskObj = { id: newId, task: newTask, complete: false }
         setData([...data, newTaskObj])
         setNewTask('')
         setShowNewTaskInput(false)
-        window.confirm('Apakah Anda yakin ingin menambahkan task ini?')
     }
 
     const [searchQuery, setSearchQuery] = useState('')
