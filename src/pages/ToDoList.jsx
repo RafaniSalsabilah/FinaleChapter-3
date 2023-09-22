@@ -49,7 +49,7 @@ export const ToDoList = () => {
         
         const confirmed = window.confirm('Apakah Anda yakin ingin menambahkan task ini?')
         if (!confirmed) {
-            return
+            return setData()
         }
         
         const newId = Math.max(...data.map((task) => task.id), 0) + 1
